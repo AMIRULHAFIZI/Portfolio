@@ -9,7 +9,7 @@ const skillGroups = [
   },
   {
     title: "Certifications",
-    items: ["CompTIA Data+", "Google Cloud"]
+    items: ["iPetro", "Google Cloud" , "CompTIA Data+"]
   }
 ];
 
