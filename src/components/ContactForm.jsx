@@ -10,28 +10,27 @@ function ContactForm() {
     setLoading(true);
     setStatus("");
 
+    // 1. Capture all form input values natively
     const formData = new FormData(formRef.current);
-    const payload = {
-      name: formData.get("name"),
-      email: formData.get("email"),
-      message: formData.get("message"),
-    };
+    
+    // 2. Inject your specific Web3Forms access key into the form submission payload
+    formData.append("access_key", "ae6995d2-fa53-4730-9419-bb4356c587c3");
 
     try {
-      const response = await fetch("/send-email", {
+      // 3. Post the form data directly to the Web3Forms API endpoint
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
+        body: formData, // Sending multi-part form data natively
       });
 
-      if (!response.ok) {
-        throw new Error("Failed to send message");
-      }
+      const data = await response.json();
 
-      setStatus("Message sent successfully!");
-      formRef.current.reset();
+      if (data.success) {
+        setStatus("Message sent successfully!");
+        formRef.current.reset(); // Clears the form fields
+      } else {
+        throw new Error(data.message || "Failed to send message");
+      }
     } catch (error) {
       setStatus("Sorry, something went wrong. Please try again.");
     } finally {
