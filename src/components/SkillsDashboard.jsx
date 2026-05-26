@@ -1,7 +1,7 @@
 const skillGroups = [
   {
     title: "Programming Languages",
-    items: ["C++", "C#", "Java", "Python", "HTML", "JAVASCRIPT"]
+    items: ["C++", "C#", "Java", "Python", "HTML", "JavaScript"]
   },
   {
     title: "Database & Analytics",
