@@ -5,7 +5,7 @@ const skillGroups = [
   },
   {
     title: "Database & Analytics",
-    items: ["PostgreSQL", "Microsoft Power BI"]
+    items: ["Microsoft Power BI", "Microsoft Excel", "Microsoft PowerPoint", "Microsoft Word", "PostgreSQL"]
   },
   {
     title: "Certifications",
